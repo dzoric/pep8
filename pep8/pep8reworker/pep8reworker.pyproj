@@ -31,6 +31,18 @@
     <Compile Include="CommentHandler\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ImportHandler\ImportHandler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImportHandler\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NewLineEnd\NewLineEnd.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NewLineEnd\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="pep8reworker.py" />
     <Compile Include="TabHandler\TabHandler.py">
       <SubType>Code</SubType>
@@ -52,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CommentHandler\" />
+    <Folder Include="ImportHandler\" />
+    <Folder Include="NewLineEnd\" />
     <Folder Include="TabHandler\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

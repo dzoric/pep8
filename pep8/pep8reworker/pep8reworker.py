@@ -1,11 +1,14 @@
 import os
 import shutil
-from TabHandler.TabHandler import handle_tabs
+from ImportHandler.ImportHandler import *
+from NewLineEnd.NewLineEnd import *
+from TabHandler.TabHandler import *
 from CommentHandler.CommentHandler import *
 from CommentHandler.MultilineCommentHandler import *
 
-strSource = 'C:\\Users\\Dragon\\Desktop\\PythonCourse'
-strDestination = 'C:\\Users\\Dragon\\Desktop\\new'
+# example: C:\\Users\\UserName\\Desktop\\Test
+strSource = 'Your source folder path here'
+strDestination = 'Your destination folder path here'
 
 shutil.copytree(strSource, strDestination)
 
@@ -28,13 +31,19 @@ for file in lstFiles:
     intCounter += 1
     file_object.close()
 
-dctFixedTabs = handle_tabs(dctCntrLines)
+dctSeparateImports = handle_imports(dctCntrLines)
+dctNewLine = add_new_line(dctSeparateImports)
+dctFixedTabs = handle_tabs(dctNewLine)
 dctFixedComments = handle_comments(dctFixedTabs)
-# dctFixMlComments = handle_multi_line_comments(fix_comments) not working
+
+# Multiline comment handler probably won't work, but you can try by uncommenting
+# and changing dctFixedComments.items() with dctFixMlComments.items()
+
+# dctFixMlComments = handle_multi_line_comments(dctFixedComments)
 
 
 for file in lstFiles:
-    for cntr, line in dctFixedComments.items():
+    for cntr, line in dctFixedComments.items(): #here
         if lstFiles.index(file) == cntr:
             file_object = open(file, "w")
             file_object.writelines([str(cntr) for cntr in line])

@@ -8,8 +8,8 @@ def handle_tabs(dictionary):
         lstNoTab = []
         for line in file:
             if cntr == intCounter:
-                rexTabTo4Space = re.sub(r'\t', '    ', line)
-                lstNoTab.append(rexTabTo4Space)
+                line = re.sub(r'\t', '    ', line)
+                lstNoTab.append(line)
             dctNoTab = {intCounter: lstNoTab}
         intCounter += 1
         dctExport.update(dctNoTab)
